@@ -14,5 +14,23 @@ git add
 ```
 - El Área de preparación es donde se preparan los cambios
 
+## Paso 3
+- Registrar una descripción del cambio realizado
+```
+git commit -m "proyecto base"
+```
+
+
+# Github
+
+```
+git remote add origin https://github.com/jerson-devs/agendafacil-landing.git
+```
+
+- Enviar los cambios al repositorio remoto
+```
+git push origin master
+```
 -------
+#### EJEMPLO
 Copiar el archivo (.env.example) a (.env) y actualizar las credenciales 
