@@ -63,7 +63,7 @@
           </ul>
         </div>
 
-        <form class="rounded-2xl border border-white/10 bg-zinc-900 p-6 sm:p-8" action="#calendario">
+        <form id="filtro" class="rounded-2xl border border-white/10 bg-zinc-900 p-6 sm:p-8">
           <div class="space-y-5">
             <div>
               <label for="nombre" class="block text-sm font-medium text-zinc-300">Nombre</label>
@@ -81,8 +81,12 @@
           <button type="submit" class="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-violet-500 text-sm font-semibold text-white transition-colors hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900">
             Ver si calza con mi rubro
           </button>
-          <p class="mt-4 text-center text-xs leading-relaxed text-zinc-500">Sin spam. Te escribimos solo si AgendaFácil sirve para lo que haces.</p>
+          <p class="mt-4 text-center text-xs leading-relaxed text-zinc-500">Usamos tu correo solo para decirte si AgendaFácil calza con tu rubro. No lo compartimos.</p>
         </form>
+        <div id="recibido" hidden tabindex="-1" role="status" class="rounded-2xl border border-emerald-400/40 bg-zinc-900 p-6 outline-none sm:p-8">
+          <p class="text-lg font-semibold text-white">Recibimos tus datos</p>
+          <p class="mt-3 text-sm leading-relaxed text-zinc-400"><span id="recibido-nombre"></span>, revisaremos tu rubro. Te escribimos al correo que dejaste solo si AgendaFácil te sirve.</p>
+        </div>
       </div>
     </section>
 
@@ -369,5 +373,15 @@
       <p>Precios en CLP · Hecho para Chile</p>
     </div>
   </footer>
+  <script>
+    document.getElementById("filtro").addEventListener("submit", function (event) {
+      event.preventDefault();
+      document.getElementById("recibido-nombre").textContent = document.getElementById("nombre").value.trim();
+      this.hidden = true;
+      var panel = document.getElementById("recibido");
+      panel.hidden = false;
+      panel.focus();
+    });
+  </script>
 </body>
 </html>
